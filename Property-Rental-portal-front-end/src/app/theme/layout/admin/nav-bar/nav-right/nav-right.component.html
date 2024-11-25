@@ -1,0 +1,32 @@
+<div class="ms-auto">
+  <ul class="list-unstyled">
+    
+    <li>
+      <div class="dropdown pc-h-item header-user-profile" ngbDropdown>
+        <a
+          class="pc-head-link head-link-primary dropdown-toggle arrow-none me-0"
+          data-bs-toggle="dropdown"
+          href="javascript:"
+          ngbDropdownToggle
+        >
+          <img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar" />
+         
+        </a>
+        <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown" ngbDropdownMenu>
+          <div class="dropdown-header">
+            <h4>
+              Good Morning,
+              <span class="small text-muted">John Doe</span>
+            </h4>
+            <p class="text-muted">Project Admin</p>
+            <form class="header-search">
+              <button class="btn btn-dark" (click)="onLogout()" >Logout</button>
+            </form>
+            <hr />
+           
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

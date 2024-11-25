@@ -1,0 +1,75 @@
+<div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h5>Available Rent</h5>
+          </div>
+      
+      <div class="card-body">
+        <div class="row g-1">
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+          <!-- Search Input Field -->
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Search by Title, Type, County..." [(ngModel)]="searchQuery" />
+          </div>
+          <!-- Property Table -->
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Property Type</th>
+                <th>County</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Price</th>
+                <th>Bedrooms</th>
+                <th>Bathrooms</th>
+                <th>Available</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let property of filteredProperties()">
+                <td>{{ property.propertyId }}</td>
+                <td>{{ property.title }}</td>
+                <td>{{ property.propertyType }}</td>
+                <td>{{ property.county }}</td>
+                <td>{{ property.city }}</td>
+                <td>{{ property.state }}</td>
+                <td>{{ property.price | currency }}</td>
+                <td>{{ property.bedrooms }}</td>
+                <td>{{ property.bathrooms }}</td>
+                <td><input type="checkbox" [checked]="property.isAvailable" disabled /></td>
+                <td>
+                  <!-- Action buttons -->
+                  <button class="btn btn-primary btn-sm" (click)="openCreateRentRequestModal(property.propertyId)">Create Rent Request</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <!-- Confirmation Modal for Create Rent Request -->
+          <div class="modal" tabindex="-1" *ngIf="showCreateRequestModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Confirm Create Rent Request</h5>
+                  <button type="button" class="btn-close" (click)="closeCreateRentRequestModal()"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to create a rent request for this property?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" (click)="createRentRequest()">Yes, Create</button>
+                  <button type="button" class="btn btn-secondary" (click)="closeCreateRentRequestModal()">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

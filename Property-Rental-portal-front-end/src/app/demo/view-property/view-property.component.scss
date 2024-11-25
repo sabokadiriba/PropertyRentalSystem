@@ -1,0 +1,22 @@
+.modal {
+    display: block; /* Force the modal to display */
+    background: rgba(0, 0, 0, 0.5); /* Modal backdrop */
+    position: fixed; /* Fix the modal to the screen */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1050; /* Ensure the modal is above other content */
+  }
+  
+  .modal-dialog {
+    position: relative; /* Keeps the dialog content centered */
+    margin: 10% auto; /* Center the modal vertically and horizontally */
+  }
+  
+  .modal-content {
+    background: white; /* White background for modal content */
+    border-radius: 8px; /* Optional: Rounded corners */
+    padding: 20px; /* Padding inside the modal */
+  }
+  

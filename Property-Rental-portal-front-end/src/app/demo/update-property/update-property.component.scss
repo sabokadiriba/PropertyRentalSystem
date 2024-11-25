@@ -1,0 +1,21 @@
+/* Custom error styling */
+.error-message {
+    color: red; /* Red color for error text */
+    font-size: 0.875rem; /* Smaller font size for error messages */
+    font-weight: bold; /* Optional: Makes the text bold */
+    margin-top: 5px; /* Adds some spacing */
+    display: block;
+  }
+  
+  .form-control.ng-touched.ng-invalid {
+    border-color: red !important; /* Highlight input fields in red when invalid */
+  }
+  
+  .form-floating label {
+    font-size: 1rem; /* Label size */
+  }
+  
+  .form-floating input.ng-touched.ng-invalid {
+    border-color: red; /* Border color for the input when invalid */
+  }
+  

@@ -1,0 +1,247 @@
+<div class="container">
+  <h2>Update Property</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- Title Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Title"
+            formControlName="title"
+          />
+          <label for="title">Title</label>
+          <div *ngIf="form.get('title')?.invalid && isSubmitted" class="text-danger">
+            Title is required and should not exceed 100 characters.
+          </div>
+        </div>
+      </div>
+
+      <!-- Description Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            placeholder="Description"
+            formControlName="description"
+            rows="3"
+          ></textarea>
+          <label for="description">Description</label>
+          <div *ngIf="form.get('description')?.invalid && isSubmitted" class="text-danger">
+            Description should not exceed 500 characters.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Property Type Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <select class="form-select" formControlName="propertyType">
+            <option value="" disabled>Select Property Type</option>
+            <option value="Apartment">Apartment</option>
+            <option value="House">House</option>
+           
+          </select>
+          <label for="propertyType">Property Type</label>
+          <div *ngIf="form.get('propertyType')?.invalid && isSubmitted" class="text-danger">
+            Property Type is required.
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- County Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="County"
+            formControlName="county"
+          />
+          <label for="county">County</label>
+          <div *ngIf="form.get('county')?.invalid && isSubmitted" class="text-danger">
+            County should not exceed 100 characters.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- City Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="City"
+            formControlName="city"
+          />
+          <label for="city">City</label>
+          <div *ngIf="form.get('city')?.invalid && isSubmitted" class="text-danger">
+            City is required and should not exceed 100 characters.
+          </div>
+        </div>
+      </div>
+
+      <!-- State Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="State"
+            formControlName="state"
+          />
+          <label for="state">State</label>
+          <div *ngIf="form.get('state')?.invalid && isSubmitted" class="text-danger">
+            State is required and should not exceed 50 characters.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Price Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Price"
+            formControlName="price"
+          />
+          <label for="price">Price</label>
+          <div *ngIf="form.get('price')?.invalid && isSubmitted" class="text-danger">
+            Price is required and should be a valid number.
+          </div>
+        </div>
+      </div>
+
+      <!-- Bedrooms Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bedrooms"
+            formControlName="bedrooms"
+          />
+          <label for="bedrooms">Bedrooms</label>
+          <div *ngIf="form.get('bedrooms')?.invalid && isSubmitted" class="text-danger">
+            Bedrooms are required and should be at least 1.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Bathrooms Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bathrooms"
+            formControlName="bathrooms"
+          />
+          <label for="bathrooms">Bathrooms</label>
+          <div *ngIf="form.get('bathrooms')?.invalid && isSubmitted" class="text-danger">
+            Bathrooms are required and should be at least 1.
+          </div>
+        </div>
+      </div>
+
+      <!-- Is Available Field -->
+      <div class="col-md-6">
+        <div class="form-check mb-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="isAvailable"
+          />
+          <label class="form-check-label" for="isAvailable">Is Available</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Parking Included Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            placeholder="Additional Notes"
+            formControlName="additionalNotes"
+            rows="3"
+          ></textarea>
+          <label for="additionalNotes">Additional Notes</label>
+        </div>
+       </div>
+
+      <!-- Pets Allowed Field -->
+      <div class="col-md-6">
+        <div class="form-check mb-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="petsAllowed"
+          />
+          <label class="form-check-label" for="petsAllowed">Pets Allowed</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Furnished Field -->
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <select class="form-select" formControlName="furnished">
+            <option value="" disabled>Select Furnishing Status</option>
+            <option value="None">None</option>
+            <option value="Semi">Semi</option>
+            <option value="Fully">Fully</option>
+          </select>
+          <label for="furnished">Furnished</label>
+          <div *ngIf="form.get('furnished')?.invalid && isSubmitted" class="text-danger">
+            Please select a furnishing status.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check mb-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="parkingIncluded"
+          />
+          <label class="form-check-label" for="parkingIncluded">Parking Included</label>
+        </div>
+
+      </div>
+
+     
+    </div>
+
+    
+    <!-- Submit Button -->
+    <div class="d-grid mt-4">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        Update Property
+      </button>
+    </div>
+
+    <!-- Success Message -->
+    <div *ngIf="isSuccess" class="alert alert-success mt-3">
+      Property updated successfully!
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

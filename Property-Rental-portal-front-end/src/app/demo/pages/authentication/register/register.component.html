@@ -1,0 +1,95 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="card mt-5">
+        <div class="card-body">
+          
+          <div class="row">
+            <div class="d-flex justify-content-center">
+              <div class="auth-header">
+                <h2 class="text-secondary mt-5"><b>Sign up</b></h2>
+                <p class="fs-4 mt-2">Enter your credentials to continue</p>
+              </div>
+            </div>
+          </div>
+          <!-- Notification Banner -->
+        <div *ngIf="errorMessage" [ngClass]="isSuccess ? 'alert alert-success' : 'alert alert-danger'">
+          {{ errorMessage }}
+        </div>
+           <form [formGroup] = "form" (ngSubmit)="onSubmit()">
+       
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control"  placeholder=" Full Name" formControlName="fullName" />
+            <label for="floatingInput">Full Name</label>
+            <div class="error-feedback" *ngIf="hasDisplayableError('fullName') && form.controls.fullName.hasError('required')">
+              Please enter your full name.
+            </div>
+          </div>
+
+         
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control"  placeholder="name@example.com" formControlName="email" />
+            <label for="floatingInput">Email Address / Username</label>
+            <div class="error-feedback" *ngIf="hasDisplayableError('email')">
+              <div *ngIf="form.controls.email.hasError('required')">
+                Please enter your email address.
+              </div>
+              <div *ngIf="form.controls.email.hasError('email')">
+                Please enter a valid email address.
+              </div>
+            </div>
+          </div>
+
+
+           <!-- Role Selection -->
+           <div class="form-floating mb-3">
+            <select class="form-select" formControlName="role">
+              <option value="" disabled selected>Select your role</option>
+              <option value="Owner">Owner</option>
+              <option value="Seeker">Seeker</option>
+            </select>
+            <label for="floatingInput">Role</label>
+            <div class="error-feedback" *ngIf="hasDisplayableError('role') && form.controls.role.hasError('required')">
+              Please select a role.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control"  placeholder="....." formControlName="password" />
+            <label for="floatingInput">Password</label>
+            <div class="error-feedback" *ngIf="hasDisplayableError('password')">
+              <ng-container [ngSwitch]="form.controls.password.errors | firstKey">
+                <div *ngSwitchCase="'required'">
+                  Please enter your password.
+                </div>
+                <div *ngSwitchCase="'minlength'">
+                  Atleast 6 characters required.
+                </div>
+                <div *ngSwitchCase="'pattern'">
+                  One or more special character(s).
+                </div>
+              </ng-container>
+              
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control"  placeholder="....." formControlName="confirmPassword" />
+            <label for="floatingInput"> Confirm Password</label>
+            <div class="error-feedback" 
+            *ngIf="hasDisplayableError('confirmPassword') && form.controls.confirmPassword.hasError('passwordMismatch')">
+              Passwords doesn't match.
+            </div>
+          </div>
+         
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-secondary p-2">Sign Up</button>
+          </div>
+        </form>
+          <hr />
+          <h5 class="d-flex justify-content-center">
+            <a [routerLink]="['/authentication/login']">Already have an account?</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+@PROPERTYRENTALPORTALAPI_HostAddress = http://localhost:5202
+
+GET {{PROPERTYRENTALPORTALAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

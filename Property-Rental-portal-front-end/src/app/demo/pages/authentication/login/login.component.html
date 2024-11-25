@@ -1,0 +1,46 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <div class="auth-form">
+      <div class="card my-5">
+        <div class="card-body">
+        
+          <div class="row">
+            <div class="d-flex justify-content-center">
+              <div class="auth-header">
+                <h2 class="text-secondary mt-5"><b>Hi, Welcome Back</b></h2>
+                <p class="fs-4 mt-2">Enter your credentials to continue</p>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="errorMessage" [ngClass]="'alert alert-danger'">
+            {{ errorMessage }}
+          </div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+           <div class="form-floating mb-3">
+            <input type="email" class="form-control"  value="info@codedthemes.com" formControlName="email" />
+            <label for="floatingInput">Email address / Username</label>
+            <div class="error-feedback" *ngIf="hasDisplayableError('email') && form.controls.email.hasError('required')">
+              Please enter your email address.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="password" value="12345" formControlName="password" />
+            <label for="password">Password</label>
+            <div class="error-feedback" *ngIf="hasDisplayableError('password') && form.controls.password.hasError('required')">
+              Please enter your password.
+            </div>
+          </div>
+         
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-secondary">Sign In</button>
+          </div>
+          </form>
+          <hr />
+          <h5 class="d-flex justify-content-center">
+            <a [routerLink]="['/authentication/register']">Don't have an account?</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
